@@ -1,15 +1,3 @@
----
-title: "交易市场简介"
-weight: 1
-# bookFlatSection: false
-# bookToc: false
-# bookHidden: false
-# bookCollapseSection: false
-# bookComments: false
-# bookSearchExclude: false
----
-
-
 # 交易市场简介
 
 ## 中心化交易所(CEX)如何工作

@@ -3,15 +3,15 @@ authors = ["HuajingYu"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Solidity Development Book"
-description = "A book that teaches how to learn Solidity smart contracts."
+title = "Web3 Development Book"
+description = "A book that learns Web3 programs."
 
 [output.html]
 curly-quotes = true
-git-repository-url = "https://github.com/yuhuajing/solidity-book"
+git-repository-url = "https://github.com/yuhuajing/web3-book"
 git-repository-icon = "fa-github"
-edit-url-template = "https://github.com/yuhuajing/solidity-book/edit/main/{path}"
-cname = "solidity-book.com"
+#edit-url-template = "https://github.com/yuhuajing/solidity-book/edit/main/{path}"
+cname = "web3-programs-book.com"
 
 [preprocessor.katex]
 after = ["links"]
