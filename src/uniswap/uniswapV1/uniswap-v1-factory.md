@@ -21,3 +21,34 @@ def createExchange(token: address) -> address:
     log.NewExchange(token, exchange)
     return exchange
 ```
+## Solidity
+1. 兑换池和Token绑定
+2. 池子和Token双向映射
+```solidity
+contract Factory {
+    mapping(address => address) tokenToExchange;
+    mapping(address => address) exchange_to_token;
+
+    function createExchange(address _token) public returns (address) {
+        require(_token != address(0), "Invalid token address");
+        require(
+            tokenToExchange[_token] == address(0),
+            "Exchange already registered."
+        );
+        Exchange exchange = new Exchange(_token);
+
+        tokenToExchange[_token] = address(exchange);
+        exchange_to_token[address(exchange)] = _token;
+
+        return address(exchange);
+    }
+
+    function getExchange(address _token) public view returns (address) {
+        return tokenToExchange[_token];
+    }
+
+    function getToken(address exchange) public view returns (address) {
+        return exchange_to_token[exchange];
+    }
+}
+```
