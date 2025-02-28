@@ -22,8 +22,9 @@ def createExchange(token: address) -> address:
     return exchange
 ```
 ## Solidity
-1. 兑换池和Token绑定
-2. 池子和Token双向映射
+1. 兑换池和 `Token` 绑定, 池子和 `Token` 双向映射
+2. 相同的代币只能创建一个池子
+3. 采用 `new` 关键字 `create` 新的池子合约
 ```solidity
 contract Factory {
     mapping(address => address) tokenToExchange;

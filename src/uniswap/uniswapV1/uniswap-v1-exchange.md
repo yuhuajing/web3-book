@@ -158,5 +158,6 @@ def tokenToTokenInput(tokens_sold: uint256, min_tokens_bought: uint256, min_eth_
     return tokens_bought
 ```
 ## Reference
-- https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig
-- https://github.com/Uniswap/v1-contracts/blob/master/contracts/uniswap_exchange.vy
+[https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
+
+[https://github.com/Uniswap/v1-contracts/blob/master/contracts/uniswap_exchange.vy](https://github.com/Uniswap/v1-contracts/blob/master/contracts/uniswap_exchange.vy)

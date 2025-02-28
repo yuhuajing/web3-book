@@ -1,3 +1,40 @@
+# UniswapV1 In Solidity
+
+## Factory工厂合约
+```solidity
+pragma solidity ^0.8.0;
+
+contract Factory {
+    mapping(address => address) tokenToExchange;
+    mapping(address => address) exchange_to_token;
+
+    function createExchange(address _token) public returns (address) {
+        require(_token != address(0), "Invalid token address");
+        require(
+            tokenToExchange[_token] == address(0),
+            "Exchange already registered."
+        );
+        Exchange exchange = new Exchange(_token);
+
+        tokenToExchange[_token] = address(exchange);
+        exchange_to_token[address(exchange)] = _token;
+
+        return address(exchange);
+    }
+
+    function getExchange(address _token) public view returns (address) {
+        return tokenToExchange[_token];
+    }
+
+    function getToken(address exchange) public view returns (address) {
+        return exchange_to_token[exchange];
+    }
+}
+```
+
+## Exchange
+
+
 ```solidity
 pragma solidity ^0.8.0;
 
@@ -194,33 +231,10 @@ contract Exchange is ERC20 {
         );
     }
 }
-
-contract Factory {
-    mapping(address => address) tokenToExchange;
-    mapping(address => address) exchange_to_token;
-
-    function createExchange(address _token) public returns (address) {
-        require(_token != address(0), "Invalid token address");
-        require(
-            tokenToExchange[_token] == address(0),
-            "Exchange already registered."
-        );
-        Exchange exchange = new Exchange(_token);
-
-        tokenToExchange[_token] = address(exchange);
-        exchange_to_token[address(exchange)] = _token;
-
-        return address(exchange);
-    }
-
-    function getExchange(address _token) public view returns (address) {
-        return tokenToExchange[_token];
-    }
-
-    function getToken(address exchange) public view returns (address) {
-        return exchange_to_token[exchange];
-    }
-}
+```
+## Tokens
+```solidity
+pragma solidity ^0.8.0;
 
 contract Token is ERC20 {
     constructor(
@@ -231,5 +245,4 @@ contract Token is ERC20 {
         _mint(msg.sender, initialSupply);
     }
 }
-
 ```
